@@ -1,0 +1,36 @@
+#define ledVermelho 13
+#define ledAmarelo 12
+#define ledVerde 11
+#define pinButton 8
+
+void setup() {
+  // put your setup code here, to run once:
+  pinMode(ledVermelho, OUTPUT);
+  pinMode(ledAmarelo, OUTPUT);
+  pinMode(ledVerde, OUTPUT);
+  pinMode(pinButton, INPUT_PULLUP);
+}
+
+void loop() {
+  // put your main code here, to run repeatedly:
+  if (digitalRead(pinButton)) {
+    digitalWrite(ledVermelho, 1);
+    delay(3000);
+    digitalWrite(ledVermelho, 0);
+
+    digitalWrite(ledVerde, 1);
+    delay(2000);
+    digitalWrite(ledVerde, 0);
+
+    digitalWrite(ledAmarelo, 1);
+    delay(1000);
+    digitalWrite(ledAmarelo, 0);
+  } else {
+    digitalWrite(ledVermelho, 0);
+    digitalWrite(ledVerde, 0);
+    digitalWrite(ledAmarelo, 1);
+    delay(500);
+    digitalWrite(ledAmarelo, 0);
+    delay(500);
+  }
+}
